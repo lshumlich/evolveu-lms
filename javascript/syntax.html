@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lorr Test</title>
+</head>
+<body>
+	<h1>Hello World from HTML</h1>
+<script>
+//
+// define Attributes / Variables
+//
+//    number
+//    string
+//    boolean
+//    array
+//    dictionary / objects
+//    undefined
+let aNumber = 5;
+let aString = "The weather is ";
+let aBoolean = true;
+let aArray = ["Cat", "Dog", "Parrot", "Snake"];
+let aPerson = {firstName:"John",lastName:"Doe",age:50,eyeColor:"blue"};
+let aUndefinedVar;
+let a = 5;
+let b = 10;
+let c = 15;
+
+//
+// sample If / else
+//
+if (aNumber === 5) {
+	console.log("Number is 5");
+}
+
+if (a < b) {
+	console.log("a is smaller than b");
+} else if (a < c) {
+	console.log("a is smaller than c");
+} else {
+	console.log("b is the smallest");
+}
+
+//
+// functions
+//    parameters
+//    returns
+//
+// no point in doing it this way in myMultiply1, as a is redundant
+// better just to return the p1 * p2 as in myMultiply2
+//
+function myMultiply1(p1, p2) {
+	let a = p1 * p2;
+	console.log("In Multiply 1 function",a);
+	return a;
+}
+
+function myMultiply2(p1, p2) {
+	return p1 * p2;
+}
+
+let f1 = myMultiply1(5, 6);
+console.log("called myMultiply1 using let f1", f1);
+console.log("called myMultiply1 within console.log", myMultiply1(5, 6));
+
+let f2 = myMultiply2(5, 6);
+console.log("called myMultiply2 using let f2", f2);
+console.log("called myMultiply2 within console.log", myMultiply2(5, 6));
+// Arrays
+//    add to the front
+//    add to the end
+//    update values
+//
+let cars = ["Saab", "Volvo", "BMW"];
+cars.unshift("Chrysler");
+cars.push("Hyundai");
+cars[1] = "Mustang";
+console.log("added another element to end", cars[cars.length - 1]);
+console.log("changed Saab element(2nd) to Mustang", cars[1]);
+console.log("here is the whole array", cars);
+
+//
+//objects
+//
+let person1 = {firstName:"John", lastName:"Doe", age:46};
+let person2 = {firstName:"Sarah", lastName:"Cruise", age:34};
+let myPeople = [person1, person2];
+
+console.log("objects,get 1st name of 2nd person", person2.firstName);
+console.log("objects,get last name of 1st person in myPeople array",
+	myPeople[0].lastName);
+
+//
+// Loops 
+// for (text1 variable)
+// for/in (text2 variable)
+// while (text3 variable)
+// do while (text4 variable)
+// forEach (text5 variable)
+//
+//
+// for
+//
+let text1 = "";
+for (i = 0; i < 5; i++) {
+  text1 += "The number is " + i + "<br>";
+}
+console.log("The ending result of text1 for loop is: ", text1);
+
+//
+// for/in
+//
+// NOTE: Using the squiggly brackets around the whole for/in
+// to create a block so that the variables inside can be used again
+// somewhere else (ie. other code will not know about these variables)
+//
+{
+	let person = {fname:"John", lname:"Doe", age:25}; 
+
+	let text2 = "";
+	let x;
+	for (x in person) {
+	  text2 += person[x];
+	  console.log("For every iteration in for-in loop, x is: ", x);
+	}
+	console.log("Using the for-in Loop", text2);
+}
+//
+// while
+//
+let i3 = 0;
+let text3 = "";
+while (i3 < 10) {
+  text3 += "The number is " + i3 + "<br>";
+  i3++;
+}
+console.log("The ending result of text3 while loop is :" + text3);
+//
+// do while
+//
+let i4 = 0;
+let text4 = "";
+do {
+  console.log("index in do while loop ", i4);
+  text4 += "The number is " + i4 + "<br>";
+  i4++;
+} while (i4 < 10);
+console.log("The ending result of text4 do while loop is :" + text4);
+
+//
+// forEach is a method on an array
+// (you need: 1) an array, 2) to pass a function when you invoke it)
+//
+// forEach needs to be called (invoked) on an array.  forEach requires
+// a function as a parameter.  forEach executes the function, passing it 3 
+// parameters.  This function receives 3 parameters (the 3 parameters 
+// don't have to be called same as this example:
+// 1) currentValue - this is the value in the array for whatever index 
+// you are on.  ForEach starts at 0 and goes through the whole array
+// 2) index - starts automatically at 0 and goes to end of array; this
+// is the index number
+// 3) array - this is the whole array; so if you include the array
+// in your console.log, you will display the whole array over and over 
+// again as however many items there are in the array
+// forEach is super efficient (the whole array doesn't get passed; just the
+// pointer to it)
+//
+let cars5 = ["Saab", "Volvo", "BMW", "asdf", "sdfg"];
+
+function car5Function(currentValue, index, array){
+	console.log("car5Function", currentValue, index);
+}
+//
+// this forEach goes to the array "cars5", and starts at index 0
+// and loops through the whole array
+// what goes to console.log (ie. what is in this function) for each item 
+// in array is:
+// 1) item value, index number, entire array
+//
+cars5.forEach(car5Function);
+
+//
+// all this does is execute the function and what will go to 
+// console.log is the 1 2 3 or the a b c. No looping, no nothing
+// (ie. no forEach loop)
+//
+car5Function(1, 2, 3);
+car5Function('a', 'b', 'c');
+
+//
+// here is a way to shorten the function name so that you don't have
+// to type in the whole "car5Function" repeatedly
+// both the 'f' and the 'car5Function' point to the same function
+//
+let f = car5Function;
+
+f(5, 6, 7);
+//
+// here, instead of passing a function with a function name, the
+// actual function is passed right inside the call for the forEach
+// method.  Useful if this is the only place you will need this 
+// function.  Prints to console the Index number, a '-', and the 
+// value of the item for each item in the array. It is defining the function
+// anonymously and passing the pointer to it
+//
+cars5.forEach(function(p1CurVal, p2Index, p3Array) {
+	console.log("From Anonymous Function", p2Index ,'-', p1CurVal);
+});
+
+
+//
+// obj: here we create an object with 3 attributes; the 3rd element is
+// a function, so this function becomes a method of obj.  
+// Also, because we are within the object, we can use 'this' to 
+// reference the attributes fname and lname, and also the showMe 
+// attribute but it is not invoking the method showMe; it will only 
+// display that it is a function. 
+//
+// If you set console.log to a constant variable, you can just use
+// the variable to do a console.log;
+//
+let show = console.log;
+let obj = {
+	fname: "Lorraine",
+	lname: "Shumlich",
+
+	showMe: function() {
+		show("Hello World from obj", this.fname, this.showMe);
+	}
+}
+
+show("First name is:", obj.fname);
+//
+// invokes the method showMe
+//
+obj.showMe();
+
+
+
+
+
+
+</script>
+</body>
+</html>

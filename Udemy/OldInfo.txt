@@ -1,0 +1,148 @@
+$Info
+
+Editor: Sublime Text 3
+
+Windows Menu: Search for Sublime Text 3; can pin to Taskbar
+
+Install Sublime Text 3: Google Sublime and download the default that shows up (or use link inside video from Udemy)
+
+Udemy link: For Login, use lshumlich@gmail.com as <Continue with google>
+
+Javascript: web actions/apps, Instagram, virtual reality apps, drones, robotics (aka ECMAScript)
+
+Console: 1) Google Chrome <View> <Developer> <JavaScript Console>, or 2) Google Chrome <:> menu on right <More tools> <Developer Tools>; <Elements> tab shows the HTML, <Console> tab shows the console
+
+clear() to clear the console (or symbol top left circle with line through it)
+
+prompt("Type your name"); for prompt to console (prompt changes input to a string; to convert to a number, put Number(var name) )
+
+var firstName = prompt("Enter your first name"); (Then do a <Shift><Enter> to add another line) var lastName = prompt("Enter your last name");
+
+alert("Hi") just prints to console; alert("The sum is:" + sum);
+
+In Chrome on console, press up arrow to bring up history
+
+Logical Operators:  &&, ||, !
+if (name === "Billy" || name === "Ann") {
+	alert("Hi Billy or Ann");
+}
+
+HTML: In Sublime Text, can enter <HTML> + <Tab> and will bring up a basic html script 
+<body>
+	<h1>Javascript in HTML</h1>
+	<script type="text/javascript" src="script.js">
+	</script>
+</body>
+(Put script tags at the bottom of the body)
+(If .js file is in another location, then use src=path and "/script.js")
+Can have multiple script tags for multiple files
+
+console.log("Hello"); will print to the console instead of alert where it is a popup (which waits for an OK)
+
+Functions: built-in --> alert(), prompt()), console.log(); the brackets execute the function; within the brackets are the parameters that are part of the function within the declaration of the function; the arguments are the actual values sent when the function is called
+2 ways: 
+1) Function Declaration --> 
+function sayHello() {
+	console.log("Hello");
+}
+sayHello();
+2) Function Expression (Anonymous Function; doesn't have a name) --> 
+var sayBye = function() {
+	console.log("Bye");
+};
+sayBye();
+Function Expressions end in a semi-colon
+
+DRY concept: Don't repeat yourself
+
+Data structure: arrays, objects
+1) arrays
+var stringsList = ["tiger", "cat", "jaguar", "cougar"];
+console.log(stringsList[1]);
+var numbersList = [1,2,3,4];
+var booleansList = [true, false, true, false];
+var functionList = [function apple() {
+	console.log("apple");
+}, function orange() {
+	console.log("orange");
+}]
+functionList (on console to display list)
+var mixedList = [14, "apples", undefined, true, function apple() {
+	console.log("apples");
+}]
+Mixed types in arrays is not advised; performance issues, etc.
+Index is the position in the array (starts at index 0)
+Array built-in methods:
+stringsList.shift(); will remove fist item "tiger"
+stringsList.pop(); will remove last item "cougar"
+stringsList.push("elephant"); will add "elephant" to end of list
+stringsList.concat(["bee", "deer"]); will add both items to end of list as separate items in the list....NOTE: * concat actually creates a new list; needs to be assigned a new list name in order to access all the items ie......var myNewList = myOldList.concat(["monkey"]);
+sort
+splice
+reverse
+
+w3schools.com website: references for HTML, CSS, JavaScript
+eg. w3c array methods
+
+2) objects:
+var user = {
+	name: "Lorraine",
+	age: 25,
+	hobby: "Soccer",
+	isMarried: true,
+	courses: ["Mathematics", "English", "History", "Physics"],
+	shout: function() {
+		console.log("AHHHHH!");
+	}
+};
+user.shout(); is calling a function within an object (this is called a method; ie. shout is a method within the object user)
+name, age, hobby, etc. are called "properties"
+user.hobby will return "Soccer"
+To add properties, just say user.favFood = "spinach"; and it will add that property
+var newsfeed = [
+	{
+		username: "Lorraine",
+		timeline: "simplepassword"
+	},
+	{
+		username: "Sharon",
+		timeline: "hardpsw"
+	},
+	{
+		username: "Gloria",
+		timeline: "mediumsimplepie"
+	}
+]; 
+newsfeed[0].password; will return the password of the first item in array
+
+Javascript Looping: for, while, do while, forEach
+
+var todos = [
+	"clean room",
+	"brush teeth",
+	"exercise",
+	"study javascript",
+	"eat healthy"
+]
+for (var i=0; i < todos.length; i++) {
+	console.log(todos[i] + "!");
+}
+
+var counterOne = 0;
+while (counterOne < 10) {
+	console.log(counterOne);
+	counterOne++;
+}
+
+var counterTwo = 10;
+do {
+	console.log(counterTwo);
+	counterTwo--;
+} while (counterTwo > 0);
+
+function logTodos(todo, i) {
+	console.log(todo, i);
+}
+todos.forEach(logTodos);
+
+Commenting/Uncommenting Sections: highlight section and then <Crtl> /

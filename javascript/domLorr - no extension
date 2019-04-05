@@ -1,0 +1,42 @@
+console.log("got to external domLorr.js file")
+
+const addCardButton = document.getElementById("idAddCard");
+const leftPanel = document.getElementById("idLeft");
+addCardButton.addEventListener("click", onAddCardClicked);
+let counter = 0;
+
+function onAddCardClicked(event) {
+	console.log("Inside onAddCardClicked");
+	leftPanel.appendChild(makeDiv());
+}
+
+function makeDiv() {
+	const div = document.createElement("div");
+	div.textContent = "Card " + counter++;
+	const addBeforeBtn = document.createElement("button");
+	//addBeforeBtn.className = "clButton";
+	addBeforeBtn.textContent = "Add Before";
+	const addAfterBtn = document.createElement("button");
+	addAfterBtn.textContent = "Add After";
+	const delBtn = document.createElement("button");
+	delBtn.textContent = "Delete";
+	delBtn.addEventListener("click", onDeleteCard);
+	div.appendChild(document.createElement("br"));
+	div.appendChild(addBeforeBtn);
+	div.appendChild(addAfterBtn);
+	div.appendChild(document.createElement("br"));
+	div.appendChild(delBtn);
+	div.className = "clCard";
+	// console.log(div);
+	// console.log(delBtn);
+	return div;
+}
+
+//console.log("testing makediv:", makeDiv("Make me a div"));
+
+function onDeleteCard(event) {
+	console.log("in onDeleteCard function", event.target);
+	let node = event.target.parentElement;
+	//node.parentElement.removeChild(node);
+	node.parentElement.removeChild(node);
+}
